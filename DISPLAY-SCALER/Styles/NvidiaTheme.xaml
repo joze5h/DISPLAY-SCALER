@@ -1,0 +1,837 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="NvBlack">#090909</Color>
+    <Color x:Key="NvSurface">#0E0F0E</Color>
+    <Color x:Key="NvPanelColor">#B8141514</Color>
+    <Color x:Key="NvPanelAltColor">#CC171A17</Color>
+    <Color x:Key="NvHover">#242824</Color>
+    <Color x:Key="NvBorder">#2D332D</Color>
+    <Color x:Key="NvBorderStrong">#465246</Color>
+    <Color x:Key="NvGreen">#76B900</Color>
+    <Color x:Key="NvGreenDark">#5F9500</Color>
+    <Color x:Key="NvGreenDim">#6676B900</Color>
+    <Color x:Key="NvGreenFaint">#2676B900</Color>
+    <Color x:Key="NvDialogSurface">#F2070807</Color>
+    <Color x:Key="NvDialogPanelColor">#D90D100D</Color>
+    <Color x:Key="NvTextPrimary">#F4F4F4</Color>
+    <Color x:Key="NvTextSecondary">#A7A7A7</Color>
+    <Color x:Key="NvTextMuted">#6E6E6E</Color>
+    <Color x:Key="NvRed">#C04444</Color>
+    <Color x:Key="NvAmber">#D69A22</Color>
+
+    <SolidColorBrush x:Key="NvBlackBrush" Color="{StaticResource NvBlack}" />
+    <SolidColorBrush x:Key="NvSurfaceBrush" Color="{StaticResource NvSurface}" />
+    <SolidColorBrush x:Key="NvPanelBrush" Color="{StaticResource NvPanelColor}" />
+    <SolidColorBrush x:Key="NvPanelAltBrush" Color="{StaticResource NvPanelAltColor}" />
+    <SolidColorBrush x:Key="NvHoverBrush" Color="{StaticResource NvHover}" />
+    <SolidColorBrush x:Key="NvCardBrush" Color="{StaticResource NvPanelColor}" />
+    <SolidColorBrush x:Key="NvCardHoverBrush" Color="{StaticResource NvHover}" />
+    <SolidColorBrush x:Key="NvBorderBrush" Color="{StaticResource NvBorder}" />
+    <SolidColorBrush x:Key="NvBorderLightBrush" Color="{StaticResource NvBorderStrong}" />
+    <SolidColorBrush x:Key="NvGreenBrush" Color="{StaticResource NvGreen}" />
+    <SolidColorBrush x:Key="NvGreenDarkBrush" Color="{StaticResource NvGreenDark}" />
+    <SolidColorBrush x:Key="NvGreenDimBrush" Color="{StaticResource NvGreenDim}" />
+    <SolidColorBrush x:Key="NvGreenFaintBrush" Color="{StaticResource NvGreenFaint}" />
+    <SolidColorBrush x:Key="NvDialogSurfaceBrush" Color="{StaticResource NvDialogSurface}" />
+    <SolidColorBrush x:Key="NvDialogPanelBrush" Color="{StaticResource NvDialogPanelColor}" />
+    <SolidColorBrush x:Key="NvTextPrimaryBrush" Color="{StaticResource NvTextPrimary}" />
+    <SolidColorBrush x:Key="NvTextSecondaryBrush" Color="{StaticResource NvTextSecondary}" />
+    <SolidColorBrush x:Key="NvTextMutedBrush" Color="{StaticResource NvTextMuted}" />
+    <SolidColorBrush x:Key="NvRedBrush" Color="{StaticResource NvRed}" />
+    <SolidColorBrush x:Key="NvAmberBrush" Color="{StaticResource NvAmber}" />
+
+    <FontFamily x:Key="NvFont">Segoe UI Variable Text, Segoe UI, Arial</FontFamily>
+    <FontFamily x:Key="NvMonoFont">Cascadia Mono, Consolas</FontFamily>
+
+    <DropShadowEffect x:Key="NvGlassShadow"
+                      BlurRadius="18"
+                      ShadowDepth="0"
+                      Opacity="0.22"
+                      Color="#000000" />
+
+    <DropShadowEffect x:Key="NvGreenSoftGlow"
+                      BlurRadius="22"
+                      ShadowDepth="0"
+                      Opacity="0.20"
+                      Color="#76B900" />
+
+    <DropShadowEffect x:Key="NvGreenPanelGlow"
+                      BlurRadius="16"
+                      ShadowDepth="0"
+                      Opacity="0.12"
+                      Color="#76B900" />
+
+    <Style x:Key="NvTitleBarButton" TargetType="Button">
+        <Setter Property="Width" Value="46" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Foreground" Value="#F0F0F0" />
+        <Setter Property="FontFamily" Value="Segoe UI, Arial" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Root" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="#706A72" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="#7D7780" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvTitleBarCloseButton" TargetType="Button" BasedOn="{StaticResource NvTitleBarButton}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#C42B1C" />
+                <Setter Property="Foreground" Value="#FFFFFF" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="NvPanel" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource NvPanelBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource NvBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="Effect" Value="{StaticResource NvGlassShadow}" />
+    </Style>
+
+    <Style x:Key="NvDialogRoot" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource NvDialogSurfaceBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource NvGreenDimBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Effect" Value="{StaticResource NvGreenSoftGlow}" />
+    </Style>
+
+    <Style x:Key="NvDialogPanel" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource NvDialogPanelBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource NvGreenDimBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="7" />
+        <Setter Property="Padding" Value="18" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Effect" Value="{StaticResource NvGreenPanelGlow}" />
+    </Style>
+
+    <Style x:Key="NvPreviewFrame" TargetType="Border">
+        <Setter Property="Background" Value="#070707" />
+        <Setter Property="BorderBrush" Value="{StaticResource NvGreenBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Effect" Value="{StaticResource NvGreenPanelGlow}" />
+    </Style>
+
+    <Style x:Key="NvMetricPanel" TargetType="Border" BasedOn="{StaticResource NvPanel}">
+        <Setter Property="Padding" Value="14,12" />
+        <Setter Property="MinHeight" Value="72" />
+    </Style>
+
+    <Style x:Key="NvMetricLabel" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource NvGreenBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource NvFont}" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="LineHeight" Value="16" />
+    </Style>
+
+    <Style x:Key="NvButtonPrimary" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource NvGreenBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource NvGreenBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="#070707" />
+        <Setter Property="FontFamily" Value="{StaticResource NvFont}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Padding" Value="14,8" />
+        <Setter Property="MinHeight" Value="36" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Root"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="#8BD600" />
+                            <Setter TargetName="Root" Property="BorderBrush" Value="{StaticResource NvGreenDarkBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Root" Property="Background" Value="#242424" />
+                            <Setter TargetName="Root" Property="BorderBrush" Value="#2D2D2D" />
+                            <Setter Property="Foreground" Value="#666666" />
+                            <Setter Property="Cursor" Value="Arrow" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvButtonSecondary" TargetType="Button">
+        <Setter Property="Background" Value="#141614" />
+        <Setter Property="BorderBrush" Value="{StaticResource NvBorderLightBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource NvFont}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Padding" Value="14,8" />
+        <Setter Property="MinHeight" Value="36" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Root"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="{StaticResource NvHoverBrush}" />
+                            <Setter TargetName="Root" Property="BorderBrush" Value="{StaticResource NvGreenBrush}" />
+                            <Setter Property="Foreground" Value="{StaticResource NvGreenBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Root" Property="Background" Value="#141414" />
+                            <Setter TargetName="Root" Property="BorderBrush" Value="#242424" />
+                            <Setter Property="Foreground" Value="#555555" />
+                            <Setter Property="Cursor" Value="Arrow" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvCheckBox" TargetType="CheckBox">
+        <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource NvFont}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="Box"
+                                Width="17"
+                                Height="17"
+                                Margin="0,0,8,0"
+                                Background="#121412"
+                                BorderBrush="{StaticResource NvBorderLightBrush}"
+                                BorderThickness="1"
+                                CornerRadius="2">
+                            <Path x:Name="Mark"
+                                  Data="M 3,8 L 7,12 L 14,4"
+                                  Stroke="#071007"
+                                  StrokeThickness="2"
+                                  StrokeStartLineCap="Round"
+                                  StrokeEndLineCap="Round"
+                                  Visibility="Collapsed" />
+                        </Border>
+                        <ContentPresenter VerticalAlignment="Center"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Box" Property="BorderBrush" Value="{StaticResource NvGreenBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Box" Property="Background" Value="{StaticResource NvGreenBrush}" />
+                            <Setter TargetName="Box" Property="BorderBrush" Value="{StaticResource NvGreenBrush}" />
+                            <Setter TargetName="Mark" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{StaticResource NvTextMutedBrush}" />
+                            <Setter Property="Cursor" Value="Arrow" />
+                            <Setter TargetName="Box" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvDialogButtonPrimary" TargetType="Button" BasedOn="{StaticResource NvButtonPrimary}">
+        <Setter Property="MinWidth" Value="118" />
+        <Setter Property="MinHeight" Value="42" />
+        <Setter Property="Padding" Value="22,10" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Effect" Value="{StaticResource NvGreenPanelGlow}" />
+    </Style>
+
+    <Style x:Key="NvDialogButtonSecondary" TargetType="Button" BasedOn="{StaticResource NvButtonSecondary}">
+        <Setter Property="MinWidth" Value="104" />
+        <Setter Property="MinHeight" Value="42" />
+        <Setter Property="Padding" Value="22,10" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="BorderBrush" Value="{StaticResource NvBorderLightBrush}" />
+    </Style>
+
+    <Style x:Key="NvDialogCloseButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Width" Value="44" />
+        <Setter Property="Height" Value="44" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="1" ScaleY="1" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid x:Name="HitRoot"
+                          Width="44"
+                          Height="44"
+                          Background="Transparent"
+                          SnapsToDevicePixels="True">
+                        <Grid Width="24"
+                              Height="24"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Border x:Name="LineA"
+                                    Width="27"
+                                    Height="2"
+                                    Background="{TemplateBinding Foreground}"
+                                    CornerRadius="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    RenderTransformOrigin="0.5,0.5">
+                                <Border.RenderTransform>
+                                    <RotateTransform Angle="45" />
+                                </Border.RenderTransform>
+                            </Border>
+                            <Border x:Name="LineB"
+                                    Width="27"
+                                    Height="2"
+                                    Background="{TemplateBinding Foreground}"
+                                    CornerRadius="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    RenderTransformOrigin="0.5,0.5">
+                                <Border.RenderTransform>
+                                    <RotateTransform Angle="-45" />
+                                </Border.RenderTransform>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource NvGreenBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="#D8FF8A" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{StaticResource NvTextMutedBrush}" />
+                            <Setter Property="Cursor" Value="Arrow" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" To="1.10" Duration="0:0:0.13">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" To="1.10" Duration="0:0:0.13">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" To="1" Duration="0:0:0.15">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" To="1" Duration="0:0:0.15">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="NvButtonDanger" TargetType="Button" BasedOn="{StaticResource NvButtonSecondary}">
+        <Setter Property="Foreground" Value="#E28B8B" />
+        <Setter Property="BorderBrush" Value="#503030" />
+    </Style>
+
+    <Style x:Key="NvTextBox" TargetType="TextBox">
+        <Setter Property="Background" Value="#0D0D0D" />
+        <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource NvBorderLightBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="10,8" />
+        <Setter Property="MinHeight" Value="36" />
+        <Setter Property="FontFamily" Value="{StaticResource NvFont}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="CaretBrush" Value="{StaticResource NvGreenBrush}" />
+        <Setter Property="SelectionBrush" Value="{StaticResource NvGreenBrush}" />
+    </Style>
+
+    <Style x:Key="NvDialogTextBox" TargetType="TextBox" BasedOn="{StaticResource NvTextBox}">
+        <Setter Property="BorderBrush" Value="{StaticResource NvGreenDimBrush}" />
+        <Setter Property="MinHeight" Value="40" />
+        <Setter Property="Padding" Value="12,8" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="NvComboBox" TargetType="ComboBox">
+        <Setter Property="Background" Value="#0D0D0D" />
+        <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource NvBorderLightBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="10,0" />
+        <Setter Property="MinHeight" Value="36" />
+        <Setter Property="FontFamily" Value="{StaticResource NvFont}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="Background" Value="#0D0D0D" />
+                    <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+                    <Setter Property="Padding" Value="10,8" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ComboBoxItem">
+                                <Border x:Name="ItemRoot"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0">
+                                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                                      VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="ItemRoot" Property="Background" Value="{StaticResource NvHoverBrush}" />
+                                        <Setter Property="Foreground" Value="{StaticResource NvGreenBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="ItemRoot" Property="Background" Value="#16200E" />
+                                        <Setter Property="Foreground" Value="{StaticResource NvGreenBrush}" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <ToggleButton x:Name="Toggle"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      Padding="{TemplateBinding Padding}"
+                                      MinHeight="{TemplateBinding MinHeight}"
+                                      Focusable="False"
+                                      IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                      ClickMode="Press">
+                            <ToggleButton.Template>
+                                <ControlTemplate TargetType="ToggleButton">
+                                    <Border x:Name="Root"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="3"
+                                            MinHeight="{TemplateBinding MinHeight}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="34" />
+                                            </Grid.ColumnDefinitions>
+                                            <ContentPresenter Grid.Column="0"
+                                                              Margin="{TemplateBinding Padding}"
+                                                              VerticalAlignment="Center"
+                                                              HorizontalAlignment="Stretch" />
+                                            <Path Grid.Column="1"
+                                                  Width="9" Height="5"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  Fill="{StaticResource NvTextSecondaryBrush}"
+                                                  Data="M 0 0 L 4.5 5 L 9 0 Z" />
+                                        </Grid>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Root" Property="BorderBrush" Value="{StaticResource NvGreenBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="Root" Property="Background" Value="#141414" />
+                                            <Setter Property="Foreground" Value="#555555" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </ToggleButton.Template>
+                        </ToggleButton>
+
+                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                                          IsHitTestVisible="False"
+                                          Content="{TemplateBinding SelectionBoxItem}"
+                                          ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                          ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Left" />
+
+                        <Popup x:Name="Popup"
+                               Placement="Bottom"
+                               IsOpen="{TemplateBinding IsDropDownOpen}"
+                               AllowsTransparency="True"
+                               Focusable="False"
+                               PopupAnimation="Fade">
+                            <Border Background="#0D0D0D"
+                                    BorderBrush="{StaticResource NvGreenBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="3"
+                                    MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}">
+                                <ScrollViewer MaxHeight="260"
+                                              Background="#0D0D0D"
+                                              CanContentScroll="True">
+                                    <ItemsPresenter />
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasItems" Value="False">
+                            <Setter TargetName="Popup" Property="MinHeight" Value="36" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvSlider" TargetType="Slider">
+        <Setter Property="Foreground" Value="{StaticResource NvGreenBrush}" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Grid Height="30" VerticalAlignment="Center">
+                        <Track x:Name="PART_Track" VerticalAlignment="Center">
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Command="Slider.DecreaseLarge"
+                                              Background="{StaticResource NvGreenBrush}"
+                                              BorderThickness="0"
+                                              Height="4">
+                                    <RepeatButton.Template>
+                                        <ControlTemplate TargetType="RepeatButton">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="2" />
+                                        </ControlTemplate>
+                                    </RepeatButton.Template>
+                                </RepeatButton>
+                            </Track.DecreaseRepeatButton>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Command="Slider.IncreaseLarge"
+                                              Background="#252925"
+                                              BorderThickness="0"
+                                              Height="4">
+                                    <RepeatButton.Template>
+                                        <ControlTemplate TargetType="RepeatButton">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="2" />
+                                        </ControlTemplate>
+                                    </RepeatButton.Template>
+                                </RepeatButton>
+                            </Track.IncreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Width="16" Height="16">
+                                    <Thumb.Template>
+                                        <ControlTemplate TargetType="Thumb">
+                                            <Border Background="{StaticResource NvGreenBrush}"
+                                                    BorderBrush="#D8FF8A"
+                                                    BorderThickness="1"
+                                                    CornerRadius="8" />
+                                        </ControlTemplate>
+                                    </Thumb.Template>
+                                </Thumb>
+                            </Track.Thumb>
+                        </Track>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvListBoxBase" TargetType="ListBox">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="True">
+                        <ScrollViewer x:Name="PART_ScrollViewer"
+                                      Style="{DynamicResource NvScrollViewer}"
+                                      Focusable="False"
+                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                      HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                      CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvMonitorListItem" TargetType="ListBoxItem">
+        <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0,0,0,8" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border x:Name="Root"
+                            Background="#B8141514"
+                            BorderBrush="{StaticResource NvBorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="5"
+                            Padding="12">
+                        <ContentPresenter />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="{StaticResource NvHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Root" Property="BorderBrush" Value="{StaticResource NvGreenBrush}" />
+                            <Setter TargetName="Root" Property="Background" Value="#16200E" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvCustomResolutionListItem" TargetType="ListBoxItem">
+        <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0,0,0,9" />
+        <Setter Property="MinHeight" Value="66" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border x:Name="Root"
+                            Background="#80101110"
+                            BorderBrush="Transparent"
+                            BorderThickness="1"
+                            CornerRadius="7"
+                            Padding="14,11">
+                        <ContentPresenter />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="#B8181D18" />
+                            <Setter TargetName="Root" Property="BorderBrush" Value="#354735" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="#CC071B24" />
+                            <Setter TargetName="Root" Property="BorderBrush" Value="{StaticResource NvGreenBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvLabel" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#9FA89F" />
+        <Setter Property="FontFamily" Value="{StaticResource NvFont}" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="LineHeight" Value="16" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="NvSectionTitle" TargetType="TextBlock" BasedOn="{StaticResource NvLabel}">
+        <Setter Property="Margin" Value="0,0,0,10" />
+    </Style>
+
+    <Style x:Key="NvHeader" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource NvFont}" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style x:Key="NvHeaderBig" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource NvFont}" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style x:Key="NvValue" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource NvTextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource NvFont}" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+
+    <Style x:Key="NvSeparator" TargetType="Border">
+        <Setter Property="Height" Value="1" />
+        <Setter Property="Background" Value="{StaticResource NvBorderBrush}" />
+    </Style>
+
+    <Style x:Key="NvScrollViewer" TargetType="ScrollViewer">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Focusable" Value="False" />
+    </Style>
+
+    <Style x:Key="NvScrollBarRepeatButton" TargetType="RepeatButton">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border Background="Transparent" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvScrollBarThumb" TargetType="Thumb">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Border x:Name="ThumbRoot"
+                            Background="#6A76B900"
+                            BorderBrush="#9076B900"
+                            BorderThickness="1"
+                            CornerRadius="3" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ThumbRoot" Property="Background" Value="#B076B900" />
+                            <Setter TargetName="ThumbRoot" Property="BorderBrush" Value="{StaticResource NvGreenBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsDragging" Value="True">
+                            <Setter TargetName="ThumbRoot" Property="Background" Value="{StaticResource NvGreenBrush}" />
+                            <Setter TargetName="ThumbRoot" Property="BorderBrush" Value="#D8FF8A" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NvScrollBar" TargetType="ScrollBar">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Width" Value="12" />
+        <Setter Property="MinWidth" Value="12" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollBar">
+                    <Grid x:Name="Root" Background="Transparent" Width="12">
+                        <Border Background="#40131613" CornerRadius="6" Margin="3,2" />
+                        <Track x:Name="PART_Track"
+                               Orientation="{TemplateBinding Orientation}"
+                               IsDirectionReversed="True"
+                               Margin="3,2">
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Style="{StaticResource NvScrollBarRepeatButton}"
+                                              Command="ScrollBar.PageUpCommand" />
+                            </Track.DecreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Style="{StaticResource NvScrollBarThumb}" />
+                            </Track.Thumb>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Style="{StaticResource NvScrollBarRepeatButton}"
+                                              Command="ScrollBar.PageDownCommand" />
+                            </Track.IncreaseRepeatButton>
+                        </Track>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Orientation" Value="Horizontal">
+                            <Setter TargetName="Root" Property="Width" Value="Auto" />
+                            <Setter TargetName="Root" Property="Height" Value="12" />
+                            <Setter Property="Height" Value="12" />
+                            <Setter Property="MinHeight" Value="12" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ScrollBar" BasedOn="{StaticResource NvScrollBar}" />
+</ResourceDictionary>

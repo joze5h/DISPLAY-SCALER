@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="DISPLAY-SCALER/DISPLAY-SCALER.csproj" Id="032a8a39-7ecc-4413-94bb-efff336a95e6">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+</Solution>
