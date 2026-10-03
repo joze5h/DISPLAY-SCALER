@@ -2,7 +2,7 @@
 
 DISPLAY-SCALER is a Windows utility for creating, validating, importing, and transferring custom display resolutions across multi-monitor setups.
 
-![DISPLAY-SCALER logo](./ico.jpg)
+![DISPLAY-SCALER logo](./logo.jpg)
 
 ## Features
 
@@ -23,11 +23,11 @@ Some operations use NVIDIA NVAPI. Feature availability depends on the GPU, drive
 
 | Main window | Custom resolution and FOV preview |
 | --- | --- |
-| <img src='./photo_2026-07-11_00-11-29%20%282%29.jpg' alt='Main window' width='440'> | <img src='./photo_2026-07-11_00-11-29%20%283%29.jpg' alt='Custom resolution and FOV preview' width='440'> |
+| <img src='./main-window.jpg' alt='Main window' width='440'> | <img src='./custom-resolution-fov-preview.jpg' alt='Custom resolution and FOV preview' width='440'> |
 
 | Import validation | EDID profile import |
 | --- | --- |
-| <img src='./photo_2026-07-11_00-11-30%20%282%29.jpg' alt='Import validation details' width='440'> | <img src='./photo_2026-07-11_00-11-30.jpg' alt='EDID profile import' width='440'> |
+| <img src='./import-validation-details.jpg' alt='Import validation details' width='440'> | <img src='./edid-profile-import.jpg' alt='EDID profile import' width='440'> |
 
 ## Build
 
