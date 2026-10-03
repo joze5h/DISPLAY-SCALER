@@ -1,6 +1,6 @@
 # DISPLAY-SCALER
 
-DISPLAY-SCALER is a Windows utility for creating, validating, importing, and transferring custom display resolutions across multi-monitor setups.
+Is a Windows utility for creating, validating, importing, and transferring custom display resolutions across multi-monitor setups.
 
 ![DISPLAY-SCALER logo](./logo.jpg)
 
